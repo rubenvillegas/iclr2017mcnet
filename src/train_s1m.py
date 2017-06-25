@@ -170,7 +170,7 @@ if __name__ == "__main__":
   parser.add_argument("--T", type=int, dest="T",
                       default=1, help="Number of steps into the future")
   parser.add_argument("--num_iter", type=int, dest="num_iter",
-                      default=100000, help="Number of iterations")
+                      default=150000, help="Number of iterations")
   parser.add_argument("--gpu", type=int, nargs="+", dest="gpu", required=True,
                       help="GPU device id")
 
