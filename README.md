@@ -33,7 +33,6 @@ If using anaconda, ffmpeg can be installed as follows:
 * UCF101
 ```
 ./data/UCF101/download.sh
-# The data arrangement within the UCF101 folder should be ./UCF-101/<video category>/<video.avi>
 ```
 * Sporst1M (will take a very long time --> 70,000 videos are downloaded only)
 ```
