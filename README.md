@@ -16,6 +16,9 @@ MCnet works with
 * pip install pyssim
 * pip install Pillow
 * pip install scikit-image
+* pip install opencv-python
+* pip install pytube
+* sudo apt-get install unrar
 * pip install --ignore-installed --upgrade https://storage.googleapis.com/tensorflow/linux/cpu/tensorflow-1.1.0-cp34-cp34m-linux_x86_64.whl
 
 FFMPEG needs to be installed as well to generate gif videos.
@@ -30,8 +33,6 @@ If using anaconda, ffmpeg can be installed as follows:
 * UCF101
 ```
 ./data/UCF101/download.sh
-# The command above will download UCF101.rar
-# UCF101.rar then needs to be decompressed using unrar
 # The data arrangement within the UCF101 folder should be ./UCF-101/<video category>/<video.avi>
 ```
 * Sporst1M (will take a very long time --> 70,000 videos are downloaded only)
