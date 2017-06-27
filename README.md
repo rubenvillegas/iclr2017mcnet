@@ -83,10 +83,10 @@ python test_ucf101.py --gpu=0 --prefix=S1M_MCNET_K=4_T=1_batch_size=8_alpha=1.0_
 
 If you find this useful, please cite our work as follows:
 ```
-@incollection{Villegas17,
+@article{villegas17mcnet,
   author = {Ruben Villegas and Jimei Yang and Seunghoon Hong and Xunyu Lin and Honglak Lee},
   title = {Decomposing Motion and Content for Natural Video Sequence Prediction},
-  booktitle = {ICLR},
+  journal = {ICLR},
   year = {2017},
 }
 ```
