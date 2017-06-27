@@ -18,7 +18,7 @@ MCnet works with
 * pip install scikit-image
 * pip install opencv-python
 * pip install pytube
-* pip install --ignore-installed --upgrade https://storage.googleapis.com/tensorflow/linux/cpu/tensorflow-1.1.0-cp34-cp34m-linux_x86_64.whl
+* pip install --ignore-installed --upgrade https://storage.googleapis.com/tensorflow/linux/gpu/tensorflow_gpu-1.1.0-cp27-none-linux_x86_64.whl
 * sudo apt-get install unrar
 
 FFMPEG needs to be installed as well to generate gif videos.
