@@ -14,6 +14,7 @@ MCnet works with
 * pip install scipy
 * pip install imageio
 * pip install pyssim
+* pip install joblib
 * pip install Pillow
 * pip install scikit-image
 * pip install opencv-python
