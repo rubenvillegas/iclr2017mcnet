@@ -47,16 +47,18 @@ def main(prefix, image_size, K, T, gpu):
 
     tf.global_variables_initializer().run()
 
-    quant_dir = "../results/quantitative/KTH/"+prefix+"/"
-    save_path = quant_dir+"results_model="+best_model+".npz"
-    if not exists(quant_dir):
-      makedirs(quant_dir)
-
-    if model.load(sess, checkpoint_dir, best_model):
+    load_result = model.load(sess, checkpoint_dir, best_model)
+    if load_result:
       print(" [*] Load SUCCESS")
+      _, model_name = load_result
     else:
       print(" [!] Load failed... exitting")
       return
+
+    quant_dir = "../results/quantitative/KTH/"+prefix+"/"
+    save_path = quant_dir+"results_model="+model_name+".npz"
+    if not exists(quant_dir):
+      makedirs(quant_dir)
 
     vid_names = []
     psnr_err = np.zeros((0, T))

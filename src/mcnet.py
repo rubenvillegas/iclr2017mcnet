@@ -296,6 +296,8 @@ class MCNET(object):
       ckpt_name = os.path.basename(ckpt.model_checkpoint_path)
       if model_name is None: model_name = ckpt_name
       self.saver.restore(sess, os.path.join(checkpoint_dir, model_name))
-      return True
+      # Get iteration number
+      iter = int(ckpt_name[ckpt_name.rfind('-')+1:])
+      return iter, model_name
     else:
-      return False
+      return None

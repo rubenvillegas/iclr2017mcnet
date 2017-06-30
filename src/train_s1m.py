@@ -22,7 +22,6 @@ def main(lr, batch_size, alpha, beta, K, T, num_iter, gpu):
   margin = 0.3
   updateD = True
   updateG = True
-  iters = 0
   image_size = [240,320]
   c_dim = 3
   prefix = ("S1M_MCNET"
@@ -63,10 +62,13 @@ def main(lr, batch_size, alpha, beta, K, T, num_iter, gpu):
 
     tf.global_variables_initializer().run()
 
-    if model.load(sess, checkpoint_dir):
-      print(" [*] Load SUCCESS")
+    load_result = model.load(sess, checkpoint_dir)
+    if load_result:
+        print(" [*] Load SUCCESS")
+        iters, _ = load_result
     else:
-      print(" [!] Load failed...")
+        print(" [!] Load failed...")
+        iters = 0
 
     g_sum = tf.summary.merge([model.L_p_sum,
                               model.L_gdl_sum, model.loss_sum,
@@ -151,7 +153,8 @@ def main(lr, batch_size, alpha, beta, K, T, num_iter, gpu):
               save_images(samples[:,:,:,::-1], [batch_size, batch_size], 
                           samples_dir+"train_%s.png" % (iters))
             if np.mod(counter, 500) == 2:
-              model.save(sess, checkpoint_dir, counter)
+              print("Saving snapshot ...")
+              model.save(sess, checkpoint_dir, counter-1)
   
             iters += 1
 
