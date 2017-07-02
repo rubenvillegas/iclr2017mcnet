@@ -7,7 +7,7 @@ Please follow the instructions to run the code.
 ## Requirements
 MCnet works with
 * Linux
-* NVIDIA GPU
+* NVIDIA Titan X GPU
 * Tensorflow version 1.1.0
 
 ## Installing Dependencies (Anaconda installation is recommended)

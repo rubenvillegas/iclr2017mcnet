@@ -47,16 +47,19 @@ def main(prefix, image_size, K, T, gpu):
 
     tf.global_variables_initializer().run()
 
-    quant_dir = "../results/quantitative/KTH/"+prefix+"/"
-    save_path = quant_dir+"results_model="+best_model+".npz"
-    if not exists(quant_dir):
-      makedirs(quant_dir)
+    loaded, model_name = model.load(sess, checkpoint_dir, best_model)
 
-    if model.load(sess, checkpoint_dir, best_model):
+    if loaded:
       print(" [*] Load SUCCESS")
     else:
       print(" [!] Load failed... exitting")
       return
+
+    quant_dir = "../results/quantitative/KTH/"+prefix+"/"
+    save_path = quant_dir+"results_model="+model_name+".npz"
+    if not exists(quant_dir):
+      makedirs(quant_dir)
+
 
     vid_names = []
     psnr_err = np.zeros((0, T))
@@ -71,7 +74,6 @@ def main(prefix, image_size, K, T, gpu):
         except Exception:
           print("imageio failed loading frames, retrying")
 
-      print(vid_path)
       action = vid_path.split("_")[1]
       if action in ["running", "jogging"]:
         n_skip = 3
