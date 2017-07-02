@@ -90,7 +90,7 @@ The quantative results will be in
 ```
 ./results/quantitative/<dataset>
 ```
-The quantitative results for each video will be stored as dictionaries and the mean results for all test data instances can be displayed as
+The quantitative results for each video will be stored as dictionaries, and the mean results for all test data instances at every timestep can be displayed as
 ```
 import numpy as np
 results = np.load('<results_file_name>')
