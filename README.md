@@ -80,6 +80,24 @@ python test_ucf101.py --gpu=0 --prefix=S1M_MCNET_K=4_T=1_batch_size=8_alpha=1.0_
 ```
 
 
+## Results
+The generated gifs will be located in
+```
+./results/images/<dataset>
+```
+
+The quantative results will be in
+```
+./results/quantitative/<dataset>
+```
+The quantitative results for each video will be stored as dictionaries and the mean results for all test data instances can be displayed as
+```
+import numpy as np
+results = np.load('<results_file_name>')
+print(results['psnr'].mean(axis=0))
+print(results['ssim'].mean(axis=0))
+```
+
 ## Citation
 
 If you find this useful, please cite our work as follows:
